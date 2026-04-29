@@ -1,0 +1,145 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #4a90d9;
+    padding: 10px 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.contenido {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    color: #4a90d9;
+}
+
+h2 {
+    color: #555;
+}
+
+/* --- INDEX --- */
+.imagen-inicio {
+    display: block;
+    margin: 20px auto;
+    width: 180px;
+}
+
+/* --- FORMULARIO --- */
+form {
+    background: white;
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form select {
+    width: 100%;
+    padding: 6px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+form input[type="submit"] {
+    margin-top: 12px;
+    background-color: #4a90d9;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #357abd;
+}
+
+/* --- TABLA --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+table th {
+    background-color: #4a90d9;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+table td {
+    padding: 9px 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+table tr:hover {
+    background-color: #eaf2ff;
+}
+
+table a {
+    color: #4a90d9;
+}
+
+/* --- DETALLE --- */
+.caja {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.paso {
+    margin-bottom: 10px;
+}
+
+.paso span {
+    font-weight: bold;
+    color: #4a90d9;
+}
+
+.volver {
+    color: #4a90d9;
+    text-decoration: none;
+}
+
+.volver:hover {
+    text-decoration: underline;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    background-color: #ddd;
+    font-size: 13px;
+    color: #666;
+}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}GymGuide - Ejercicios{% endblock %}
+
+{% block content %}
+
+<h1>Lista de ejercicios</h1>
+
+<form action="/ejercicios" method="get">
+    <label for="busqueda">Buscar por nombre:</label>
+    <input type="text" id="busqueda" name="busqueda" value="{{ busqueda }}" placeholder="Ej: press, curl...">
+
+    <label for="musculo">Filtrar por músculo:</label>
+    <select id="musculo" name="musculo">
+        <option value="">-- Todos --</option>
+        {% for m in musculos %}
+            {% if musculo_sel == m %}
+                <option value="{{ m }}" selected>{{ m }}</option>
+            {% else %}
+                <option value="{{ m }}">{{ m }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+
+    <label for="orden">Ordenar:</label>
+    <select id="orden" name="orden">
+        {% if orden == "asc" %}
+            <option value="asc" selected>A - Z</option>
+            <option value="desc">Z - A</option>
+        {% else %}
+            <option value="asc">A - Z</option>
+            <option value="desc" selected>Z - A</option>
+        {% endif %}
+    </select>
+
+    <input type="submit" value="Buscar">
+</form>
+
+<p>Se muestran <strong>{{ ejercicios|length }}</strong> ejercicios.</p>
+
+{% if ejercicios %}
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Músculo principal</th>
+            <th>Tipo</th>
+            <th>Ver más</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for e in ejercicios %}
+        <tr>
+            <td>{{ e.nombre.visible }}</td>
+            <td>{{ e.musculos.principal.nombre }}</td>
+            <td>{{ e.clasificacion.tipo.nombre }}</td>
+            <td><a href="/ejercicio/{{ e.id }}">Ver detalle</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No se encontraron ejercicios con esa búsqueda.</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}GymGuide - {{ ejercicio.nombre.visible }}{% endblock %}
+
+{% block content %}
+
+<a href="/ejercicios" class="volver">&larr; Volver al listado</a>
+
+<h1>{{ ejercicio.nombre.visible }}</h1>
+
+<div class="caja">
+    <h2>Información general</h2>
+    <p><strong>Músculo principal:</strong> {{ ejercicio.musculos.principal.nombre }}</p>
+    <p><strong>Tipo de ejercicio:</strong> {{ ejercicio.clasificacion.tipo.nombre }}</p>
+    {% if ejercicio.musculos.secundarios %}
+    <p><strong>Músculos secundarios:</strong>
+        {% for sec in ejercicio.musculos.secundarios %}
+            {{ sec.nombre }}{% if not loop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+    {% endif %}
+    <p><strong>Descripción:</strong> {{ ejercicio.descripcion.resumen }}</p>
+</div>
+
+<div class="caja">
+    <h2>Material necesario</h2>
+    {% if ejercicio.material.equipo %}
+    <ul>
+        {% for item in ejercicio.material.equipo %}
+        <li>{{ item.elemento.nombre }} ({{ item.elemento.tipo }})</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No se necesita material específico.</p>
+    {% endif %}
+</div>
+
+<div class="caja">
+    <h2>Cómo se hace</h2>
+    {% for paso_item in ejercicio.ejecucion.pasos %}
+    <div class="paso">
+        <span>Paso {{ paso_item.paso.numero }}:</span> {{ paso_item.paso.texto }}
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
