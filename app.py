@@ -44,5 +44,12 @@ def ejercicios():
         orden=orden
     )
 
+@app.route("/ejercicio/<int:id>")
+def detalle(id):
+    lista = cargar_ejercicios()
+    for ejercicio in lista:
+        if ejercicio["id"] == id:
+            return render_template("detalle.html", ejercicio=ejercicio)
+    return abort(404)
 
 app.run("0.0.0.0", 5000, debug=True)
