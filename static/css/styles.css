@@ -36,14 +36,12 @@ h2 {
     color: #555;
 }
 
-/* --- INDEX --- */
 .imagen-inicio {
     display: block;
     margin: 20px auto;
     width: 180px;
 }
 
-/* --- FORMULARIO --- */
 form {
     background: white;
     padding: 15px;
@@ -81,7 +79,6 @@ form input[type="submit"]:hover {
     background-color: #357abd;
 }
 
-/* --- TABLA --- */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -108,7 +105,6 @@ table a {
     color: #4a90d9;
 }
 
-/* --- DETALLE --- */
 .caja {
     background: white;
     border: 1px solid #ccc;
@@ -134,7 +130,6 @@ table a {
     text-decoration: underline;
 }
 
-/* --- FOOTER --- */
 footer {
     text-align: center;
     padding: 15px;
