@@ -7,8 +7,8 @@
 <h1>Lista de ejercicios</h1>
 
 <form action="/ejercicios" method="get">
-    <label for="busqueda">Buscar por nombre:</label>
-    <input type="text" id="busqueda" name="busqueda" value="{{ busqueda }}" placeholder="Ej: press, curl...">
+    <label for="busqueda">Busca por tipo:</label>
+    <input type="text" id="busqueda" name="busqueda" value="{{ busqueda }}" placeholder="Ej: compuesto, aislamiento...">
 
     <label for="musculo">Filtrar por músculo:</label>
     <select id="musculo" name="musculo">
@@ -45,6 +45,7 @@
             <th>Nombre</th>
             <th>Músculo principal</th>
             <th>Tipo</th>
+            <th>Nº de pasos</th>
             <th>Ver más</th>
         </tr>
     </thead>
@@ -54,6 +55,7 @@
             <td>{{ e.nombre.visible }}</td>
             <td>{{ e.musculos.principal.nombre }}</td>
             <td>{{ e.clasificacion.tipo.nombre }}</td>
+            <td>{{ e.ejecucion.pasos|length }}</td>
             <td><a href="/ejercicio/{{ e.id }}">Ver detalle</a></td>
         </tr>
         {% endfor %}

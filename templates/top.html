@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}GymGuide - Top Ejercicios{% endblock %}
+
+{% block content %}
+<a href="/" class="volver">&larr; Volver</a>
+<h1>Top ejercicios por número de pasos</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Músculo principal</th>
+            <th>Tipo</th>
+            <th>Nº de pasos</th>
+            <th>Ver más</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for e in ejercicios %}
+        <tr>
+            <td>{{ e.nombre.visible }}</td>
+            <td>{{ e.musculos.principal.nombre }}</td>
+            <td>{{ e.clasificacion.tipo.nombre }}</td>
+            <td>{{ e.ejecucion.pasos|length }}</td>
+            <td><a href="/ejercicio/{{ e.id }}">Ver detalle</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

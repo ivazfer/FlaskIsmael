@@ -28,7 +28,7 @@ def ejercicios():
     musculos_unicos = sorted(set(e["musculos"]["principal"]["nombre"] for e in lista))
 
     if busqueda:
-        lista = [e for e in lista if busqueda.lower() in e["nombre"]["visible"].lower()]
+        lista = [e for e in lista if busqueda.lower() in e["clasificacion"]["tipo"]["nombre"].lower()]
 
     if musculo:
         lista = [e for e in lista if e["musculos"]["principal"]["nombre"] == musculo]
@@ -43,6 +43,12 @@ def ejercicios():
         musculo_sel=musculo,
         orden=orden
     )
+
+@app.route("/top")
+def top():
+    lista = cargar_ejercicios()
+    lista = sorted(lista, key=lambda e: len(e["ejecucion"]["pasos"]), reverse=True)
+    return render_template("top.html", ejercicios=lista)
 
 @app.route("/ejercicio/<int:id>")
 def detalle(id):
